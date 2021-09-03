@@ -1,8 +1,7 @@
 import React,{useEffect,useState} from 'react';
-import Display from './DisplayComponent';
+import DisplayCases from './DisplayCasesComponent';
 import '../css/style.css';
-export default function CountryReport({option}) {
-
+export default function CountryReport({option,countryName}) {
 const [covidData,setCovidData] =useState('');
 console.log(option);
 useEffect( ()=>{
@@ -11,26 +10,11 @@ useEffect( ()=>{
     .then((res) => setCovidData(res))
 },[option])
 console.log(covidData);
-let tracker=covidData?[{confirmed:covidData.confirmed.value},{recovered:covidData.recovered.value},{deaths:covidData.deaths.value}]:[];
 
 return(
-   
-    <>
-     <h1>{option}</h1>
-       <div className="displayCasesCountry">
-          
-          {tracker.map((item,key) => {
-              return(
-              <Display className="displayCaseVal" title={Object.keys(item)[0]} value={Object.values(item)[0]} />
-              )
-          })}
-      {/* <p className="displayCaseVal">confirmed: {covidData?covidData.confirmed.value:''}</p>
-      <p className="displayCaseVal">recovered: {covidData?covidData.recovered.value:''}</p>
-      <p className="displayCaseVal">deaths: {covidData?covidData.deaths.value:''}</p> */}
-      
-      </div>
-    
-
+   <>
+     <h1>{countryName}</h1>
+     {covidData? <DisplayCases confirmed={covidData.confirmed.value} recovered={covidData.recovered.value} deaths={covidData.deaths.value}/>:''}
     </>
 )
 
