@@ -3,7 +3,7 @@ import Display from './DisplayComponent';
 import CountryReport from './CountryReportComponent';
 import '../css/style.css';
 export default function Body(){
-    const [option,setOption] = useState('IND');
+    const [option,setOption] = useState('AFG');
     const [covidData,setCovidData]=useState('');
     const[countries,setCountries] =useState({});
     
@@ -39,8 +39,9 @@ export default function Body(){
         <p className="displayCaseVal">deaths: {covidData?covidData.deaths.value:''}</p> */}
         
         </div>
-        <div className="">
-        <select className="selectOption" onChange={(e) => {setOption(e.target.value);}}>
+        <>
+        <h3>Select Country : 
+        &nbsp;<select className="selectOption" onChange={(e) => {setOption(e.target.value);}}>
             {
                 countryList?(countryList.map((item) => {
                    return(
@@ -50,8 +51,9 @@ export default function Body(){
             )):''
             }
               </select>
+              </h3>
               <CountryReport option={option} />
-           </div>
+           </>
         {console.log(option)}   
         </>
     )
