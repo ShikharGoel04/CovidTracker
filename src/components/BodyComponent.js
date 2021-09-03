@@ -1,9 +1,12 @@
 import React,{ useState,useEffect } from 'react';
 import Display from './DisplayComponent';
+import CountryReport from './CountryReportComponent';
 import '../css/style.css';
 export default function Body(){
+    const [option,setOption] = useState('IND');
     const [covidData,setCovidData]=useState('');
     const[countries,setCountries] =useState({});
+    
     useEffect(() => {
     fetch('https://covid19.mathdro.id/api/countries')
     .then((response) => response.json())
@@ -37,17 +40,19 @@ export default function Body(){
         
         </div>
         <div>
-        <select>
+        <select onChange={(e) => {setOption(e.target.value);}}>
             {
                 countryList?(countryList.map((item) => {
                    return(
-                    <option id={Object.values(item)[0]} value={Object.values(item)[0]}>  {Object.values(item)[0]}</option>
+                    <option id={Object.values(item)[0]}   value={Object.values(item)[2]}>  {Object.values(item)[0]}</option>
                     )
                 }   
             )):''
             }
               </select>
+              <CountryReport option={option} />
            </div>
+        {console.log(option)}   
         </>
     )
 
