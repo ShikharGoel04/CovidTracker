@@ -17,7 +17,7 @@ return(
    
     <>
      <h1>{option}</h1>
-       <div className="displayCases">
+       <div className="displayCasesCountry">
           
           {tracker.map((item,key) => {
               return(

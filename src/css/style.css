@@ -8,9 +8,22 @@
 
 .displayCaseVal
 {
-    padding-left: 200px;
-    padding-right: 200px;
-    border:1px solid black;
-
-
+    padding-left: 70px;
+    padding-right: 70px;
+    padding-top:30px;
+    
 }
+
+.displayCasesCountry
+{
+    display:flex;
+    flex-direction: column;
+    margin-left:470px;
+}
+
+.selectOption {
+    margin-top:50px;
+  }
+  
+ 
+  

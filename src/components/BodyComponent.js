@@ -22,7 +22,7 @@ export default function Body(){
     console.log("countries",countries.countries);
     let countryList=countries?countries.countries:[];
     console.log("countryList",countryList);
-    let options=[];
+    
     return(
        <>
         {covidData?console.log(covidData.confirmed):covidData.confirmed}
@@ -39,8 +39,8 @@ export default function Body(){
         <p className="displayCaseVal">deaths: {covidData?covidData.deaths.value:''}</p> */}
         
         </div>
-        <div>
-        <select onChange={(e) => {setOption(e.target.value);}}>
+        <div className="">
+        <select className="selectOption" onChange={(e) => {setOption(e.target.value);}}>
             {
                 countryList?(countryList.map((item) => {
                    return(
