@@ -1,11 +1,9 @@
 import React,{ useState,useEffect } from 'react';
 import DisplayCases from './DisplayCasesComponent';
-import CountryReport from './CountryReportComponent';
 import DisplayChart from './DisplayChartComponent';
 import '../css/style.css';
 export default function Body(){
     const [option,setOption] = useState('global');
-    const [selected,setSelected]=useState(0);
     const [covidData,setCovidData]=useState('');
     const[countries,setCountries] =useState({});
     const [countryName, setCountryName] =useState('');

@@ -2,8 +2,6 @@ import React,{useState,useEffect} from 'react';
 import {Bar} from 'react-chartjs-2';
 
 export default function DisplayChart({option}) {
-    const [states,setStates]=useState([]);
-const [confirmed,setConfirmed]=useState([]);
 const [countryData,setCountryData]=useState([]);
 useEffect(() => {
     fetch(`https://covid19.mathdro.id/api/countries/${option}/confirmed`)
@@ -17,10 +15,6 @@ let statesName=[];
 let cases=[];
 countryData.map((item) => (statesName.push(item.provinceState)))
 countryData.map((item) => (cases.push(item.cases28Days)))
-console.log(statesName)
-console.log("cases",cases)
-// console.log(states)
-// countryData.map((item) => setStates(state=> state + item.provinceState) )
 
 return (
 <>
