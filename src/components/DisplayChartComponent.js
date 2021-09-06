@@ -13,15 +13,20 @@ useEffect(() => {
 console.log("countryData",countryData);
 let statesName=[];
 let cases=[];
+let deaths=[];
 countryData.map((item) => (statesName.push(item.provinceState)))
-countryData.map((item) => (cases.push(item.cases28Days)))
+countryData.map((item) => (cases.push(item.confirmed)))
+countryData.map((item) => (deaths.push(item.deaths)))
 
 return (
 <>
 <Bar
-          data={{labels:statesName,datasets:[{data:cases,label: 'cases28days',
+          data={{labels:statesName,datasets:[{data:cases,label: 'confirmed',
           backgroundColor: 'rgba(75,192,192,1)',
           borderColor: 'rgba(0,0,0,1)',
+          borderWidth: 2},{data:deaths,label: 'deaths',
+          backgroundColor: 'yellow',
+          borderColor: 'green',
           borderWidth: 2}]}}
           options={{
             title:{
